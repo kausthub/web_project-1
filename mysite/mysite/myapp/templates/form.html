@@ -1,0 +1,116 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Course End Survey 2015</title>
+<link rel="icon" href="../static/bms.jpeg">
+<link rel="stylesheet" href="../static/css/styles.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
+	rel='stylesheet' type='text/css'>
+<SCRIPT language=JavaScript>
+	var iNumQuestions = {{ num_question }};
+
+	function check() {
+
+            {% for question in latest_question_list %}
+			var bOneChecked = false;
+			var aRadios = document.getElementsByName({{ question.id }});
+
+			for (var j = 0; j < aRadios.length; j++) {
+
+				if (aRadios[j].checked)
+					bOneChecked = true;
+			}
+
+			if (!bOneChecked) {
+				alert("Please submit all ratings before proceeding.");
+				return false;
+			}
+			{% endfor %}
+	}
+</SCRIPT>
+
+<link rel="stylesheet" href="../static/css/base.css">
+</head>
+
+<body>
+	<div class="topHead">
+			<div class="topLeft">
+				<div class="spacer">
+				<!-- #BeginEditable "headline" -->Welcome,
+			   {{ name  }} ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- #EndEditable -->
+			   </div>
+		   </div>
+			<div class="topRight">
+
+				<a href="https://surabhi.pythonanywhere.com/logout/"><div class="logoutBtn">Logout</div></a>
+
+			</div>
+		</div>
+	<div class="topBar">
+		<div class="title">
+			<h3>
+				How would you rate subject {{ subject }}
+				. .
+
+			</h3>
+		</div>
+	</div>
+	<div class="ratingChart">
+		<a class="backBtn" href="https://surabhi.pythonanywhere.com/sub/"><div class="rating">
+				Go<br>Back
+			</div></a>
+		<div class="rating">
+			Rating <br>Chart
+		</div>
+
+	</div>
+	<!-- #BeginEditable "text" -->
+	<form method="post" action="https://surabhi.pythonanywhere.com/store/" name="form1" onSubmit="return check(this)"> {% csrf_token %}
+		<input type="hidden" name="stuname"
+			value="{{ name }}"> <input
+			type="hidden" name="subname"
+			value="{{ subject }}">
+		<table class="ratingTable">
+			<thead>
+				<tr>
+					<th><font color="white">Question</font></th>
+					{% for choice in latest_choice_list %}
+
+					<th><font color="white">{{ choice.choice_text }}</font></th>
+
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+
+
+
+
+
+
+				    {% for question in latest_question_list %}
+				     <tr>
+
+					<td class="questionText">{{ question.question_text }}</td>
+
+                    {% for choice in latest_choice_list %}
+
+					<td class="col5"><input type="radio" name={{ question.id }}
+						value="{{ choice.choice_text }}" /></td>
+
+
+                    {% endfor %}
+					</tr>
+                    {% endfor %}
+
+			</tbody>
+		</table>
+		<input class="btn btn-submit" type="submit" name="submit"
+			value="Submit ratings">
+	</form>
+</body>
+<!-- #EndTemplate -->
+</html>

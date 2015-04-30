@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Course End Survey 2015</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<style type="text/css">
+body {
+  background-color: rgb(231,238,247);
+  background-image: url('//ssl.gstatic.com/docs/forms/themes/images/v1/0AX42CRMsmRFbUy03NTAzM2Q4My03ODU1LTQ2NzItODI2YS1kZmU5YzdiMzZjOGQ/blue-stripe-bg.png');
+  background-repeat: repeat;
+  background-position: left top;
+}
+body {
+  font-family: "Roboto";
+  color: rgb(119,119,119);
+  font-weight: 400;
+  font-size: 1.080rem;
+  font-style: normal;
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row text-center pad-top ">
+            <div class="col-md-12">
+                <h2>Course End Survey </h2>
+            </div>
+        </div>
+        {% if latest_subject_list %}
+
+                          <div class="row  pad-top">
+
+                <div class="col-md-8 col-md-offset-2 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-1">
+                        <div class="panel panel-default">
+
+
+
+                                <form role="form" action = "https://surabhi.pythonanywhere.com/thanks/" method="POST">{% csrf_token %}
+                             {% for subject in latest_subject_list %}
+                            <div class="panel-heading">
+                            <h4>
+                            {{ subject.subject_code }}
+                            </h4>
+                            </div>
+                            {% for question in latest_question_list %}
+
+
+
+                                {% if question.subject == subject %}
+                                         <div class="panel-body">
+                                        <br/>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">{{ question.question_text }}</span>
+                                            </div>
+                                            <br/>
+                                            {% for choice in latest_choice_list %}
+                                                {% if choice.question == question %}
+                                                <input type="radio" name={{ choice.choice_text }} value={{ choice.choice_text }} /> &nbsp;&nbsp; {{ choice.choice_text }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             {% endif %}
+                                            {% endfor %}
+                                        </div>
+
+                                {% endif %}
+
+                            {% endfor %}
+                {% endfor %}
+                <input type="submit" value="Submit survey" class="btn btn-success "/>
+                </form>
+
+                    </div>
+
+                        </div>
+                    </div>
+
+
+
+
+        {% else %}
+            <p>No surveys are available.</p>
+        {% endif %}
+
+<br/>
+
+
+
+    </div>
+
+
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="../static/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="../static/js/bootstrap.js"></script>
+
+
+
+</body>
+</html>

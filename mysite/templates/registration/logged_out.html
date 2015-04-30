@@ -1,0 +1,20 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="https://surabhi.pythonanywhere.com/">{% trans 'Home' %}</a></div>{% endblock %}
+
+{% block extrastyle %}
+<style>
+body {
+    background-color: #CEEDE4;
+}
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+<h1>Thanks for using the site.</h1>
+<h3><a href="../">Log in again</a></h3>
+<h3><a href="https://surabhi.pythonanywhere.com/">Return to the home page</a></h3>
+{% endblock %}

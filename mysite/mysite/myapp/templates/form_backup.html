@@ -1,0 +1,568 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<title>LiteQ Feedback System</title>
+<link rel="stylesheet" href="../static/css/styles.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
+	rel='stylesheet' type='text/css'>
+
+<SCRIPT language=JavaScript>
+	var iNumQuestions = 10;
+
+	function check() {
+
+		for (var i = 0; i <= iNumQuestions; i++) {
+
+			var bOneChecked = false;
+			var aRadios = document.getElementsByName('score' + i);
+
+			for (var j = 0; j < aRadios.length; j++) {
+
+				if (aRadios[j].checked)
+					bOneChecked = true;
+			}
+
+			if (!bOneChecked) {
+				alert("Please submit all ratings before proceeding.");
+				return false;
+			}
+		}
+
+		for (var i = 1; i <= 4; i++) {
+
+			var bOneChecked1 = false;
+			var aRadios1 = document.getElementsByName('courseSurveyAnswer' + i);
+
+			for (var j = 0; j < aRadios1.length; j++) {
+
+				if (aRadios1[j].checked)
+					bOneChecked1 = true;
+			}
+
+			if (!bOneChecked1) {
+				alert("Please submit all ratings for course survey before proceeding.");
+				return false;
+			}
+		}
+
+		return true;
+	}
+</SCRIPT>
+
+
+<link rel="stylesheet" href="../static/css/base.css">
+</head>
+
+
+<body>
+	<div class="topHead">
+		<div class="topLeft">
+			&nbsp;&nbsp;
+			<!-- #BeginEditable "headline" -->
+			Welcome,
+			KAUSTHUB NAARAYAN B
+			.
+		</div>
+		<div class="topcenter">
+			Thu, 16 April 2015, 11:37 PM
+		</div>
+		<div class="topRight">
+			<a href="logout?confirm=1"><div class="logoutBtn">Logout</div></a>
+		</div>
+	</div>
+	<div class="topBar">
+		<div class="title">
+			<h3>
+				How would you rate
+				. PREETHA S .
+				for the period from 10-March-15 to 15-Apr-15 ?
+			</h3>
+		</div>
+	</div>
+	<div class="ratingChart">
+		<a class="backBtn" href="evaluation.jsp"><div class="rating">
+				Go<br>Back
+			</div></a>
+		<div class="rating">
+			Rating <br>Chart
+		</div>
+		<div class="rating rate5">
+			<div class="ratingPoint">5</div>
+			<div class="ratingExplanation">Excellent</div>
+		</div>
+		<div class="rating rate4">
+			<div class="ratingPoint">4</div>
+			<div class="ratingExplanation">Very Good</div>
+		</div>
+		<div class="rating rate3">
+			<div class="ratingPoint">3</div>
+			<div class="ratingExplanation"
+				style="font-size: 10px; padding-top: 6px;">Met The
+				Expectations</div>
+		</div>
+		<div class="rating rate2">
+			<div class="ratingPoint">2</div>
+			<div class="ratingExplanation">Fair</div>
+		</div>
+		<div class="rating rate1">
+			<div class="ratingPoint">1</div>
+			<div class="ratingExplanation">Poor</div>
+		</div>
+	</div>
+	<!-- #BeginEditable "text" -->
+	<form method="post" action="studentFeedback.jsp" name="form1"
+		onSubmit="return check(this)">
+		<input type="hidden" name="TeaName"
+			value=". PREETHA S ."> <input
+			type="hidden" name="SubName"
+			value="COMPUTER NETWORKS">
+		<table class="ratingTable">
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>5</th>
+					<th>4</th>
+					<th>3</th>
+					<th>2</th>
+					<th style="border-right: 0;">1</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<input type="hidden" name="semid" value="null" />
+				<input type="hidden" name="teacher" value="186" />
+				<input type="hidden" name="subject" value="14" />
+
+
+
+
+
+				<tr>
+					<td class="questionText">Was the Session interactive and Doubts were Clarified</td>
+					<input type="hidden" name="pid1" value="1" />
+
+
+					<td class="col5"><input type="radio" name="score1"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score1"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score1"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score1"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score1"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Did the faculty use real world Examples and Cases</td>
+					<input type="hidden" name="pid2" value="2" />
+
+
+					<td class="col5"><input type="radio" name="score2"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score2"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score2"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score2"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score2"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">How was the Presentation Style of the Faculty</td>
+					<input type="hidden" name="pid3" value="3" />
+
+
+					<td class="col5"><input type="radio" name="score3"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score3"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score3"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score3"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score3"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">How Effective were the Communication Skills</td>
+					<input type="hidden" name="pid4" value="4" />
+
+
+					<td class="col5"><input type="radio" name="score4"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score4"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score4"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score4"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score4"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Was the Class controlled and Discipline was Maintained</td>
+					<input type="hidden" name="pid5" value="5" />
+
+
+					<td class="col5"><input type="radio" name="score5"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score5"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score5"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score5"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score5"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Provides up-to-date information on the topic</td>
+					<input type="hidden" name="pid6" value="6" />
+
+
+					<td class="col5"><input type="radio" name="score6"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score6"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score6"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score6"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score6"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Makes objective and impartial evaluation of students work</td>
+					<input type="hidden" name="pid7" value="7" />
+
+
+					<td class="col5"><input type="radio" name="score7"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score7"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score7"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score7"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score7"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Sincerity and commitment towards academic work</td>
+					<input type="hidden" name="pid8" value="8" />
+
+
+					<td class="col5"><input type="radio" name="score8"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score8"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score8"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score8"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score8"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Approachable after class hours for discussion</td>
+					<input type="hidden" name="pid9" value="9" />
+
+
+					<td class="col5"><input type="radio" name="score9"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score9"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score9"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score9"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score9"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				<tr>
+					<td class="questionText">Encourages students to participate in the discussions</td>
+					<input type="hidden" name="pid10" value="10" />
+
+
+					<td class="col5"><input type="radio" name="score10"
+						value="5" /></td>
+
+
+					<td class="col4"><input type="radio" name="score10"
+						value="4" /></td>
+
+
+					<td class="col3"><input type="radio" name="score10"
+						value="3" /></td>
+
+
+					<td class="col2"><input type="radio" name="score10"
+						value="2" /></td>
+
+
+					<td class="col1"><input type="radio" name="score10"
+						value="1" /></td>
+
+
+
+				</tr>
+
+
+
+				</tr>
+				<input type="hidden" name="rowCount" value="10" />
+
+
+				<input type="hidden" name="count" value="2">
+
+
+
+
+
+				<input type="hidden" name="SubName" value="null">
+
+			</tbody>
+		</table>
+		<table class="ratingTable">
+			<tr>
+				<td>Your Overall Impression on this Faculty-Subject</td>
+				<td><input type="radio" name="score0" value="5" /> Excellent</td>
+				<td><input type="radio" name="score0" value="3" /> Good</td>
+				<td><input type="radio" name="score0" value="1" /> Poor</td>
+			</tr>
+		</table>
+		<table class="ratingTable">
+		<td colspan="4"><span class="btn btn-submit" >Course survey feedback</span><td>
+
+
+
+			<tr style="width: 70%;">
+				<td style="text-align: left;">Where the course out come well defined?</td>
+				<input type="hidden" name="courseSurveyId1"
+					value="1" />
+				</td>
+
+				<td><input type="radio"
+					name="courseSurveyAnswer1" value="Y" /> Yes</td>
+				<td><input type="radio"
+					name="courseSurveyAnswer1" value="N" /> No</td>
+
+			</tr>
+
+
+
+
+
+			<tr style="width: 70%;">
+				<td style="text-align: left;">Was the course outcome kept in view while facilitating the learning process?</td>
+				<input type="hidden" name="courseSurveyId2"
+					value="2" />
+				</td>
+
+				<td><input type="radio"
+					name="courseSurveyAnswer2" value="Y" /> Yes</td>
+				<td><input type="radio"
+					name="courseSurveyAnswer2" value="N" /> No</td>
+
+			</tr>
+
+
+
+
+
+			<tr style="width: 70%;">
+				<td style="text-align: left;">Where the course outcomes visible in the content of the course?</td>
+				<input type="hidden" name="courseSurveyId3"
+					value="3" />
+				</td>
+
+				<td><input type="radio"
+					name="courseSurveyAnswer3" value="Y" /> Yes</td>
+				<td><input type="radio"
+					name="courseSurveyAnswer3" value="N" /> No</td>
+
+			</tr>
+
+
+
+
+
+			<tr style="width: 70%;">
+				<td style="text-align: left;">Did assesments(internal/quiz/AAT) relevant to the course out come?</td>
+				<input type="hidden" name="courseSurveyId4"
+					value="4" />
+				</td>
+
+				<td><input type="radio"
+					name="courseSurveyAnswer4" value="Y" /> Yes</td>
+				<td><input type="radio"
+					name="courseSurveyAnswer4" value="N" /> No</td>
+
+			</tr>
+
+
+
+		</table>
+		<table class="ratingTable">
+			<input type="hidden" name="courseSurveyCounter"
+				value="5" />
+			</td>
+			<tr>
+				<td>Suggestions :</td>
+				<td><textarea style="width: 100%; border-color: #000000; border-width: 2px;" name="remarks"></textarea></td>
+		</table>
+		<input class="btn btn-submit" type="submit" name="submit"
+			value="Submit ratings"> <input type="hidden"
+			name="multipleEvaluation" value="true"> <input type="hidden"
+			name="form_id" value="1">
+	</form>
+	</form>
+
+
+	<script>
+		iNumQuestions =
+	10
+		;
+	</script>
+</body>
+<!-- #EndTemplate -->
+</html>
