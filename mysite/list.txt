@@ -1,0 +1,9 @@
+auth_group                  django_session            
+auth_group_permissions      myapp_choicemain          
+auth_message                myapp_question            
+auth_permission             myapp_result              
+auth_user                   myapp_result1             
+auth_user_groups            myapp_result2             
+auth_user_user_permissions  myapp_result_final        
+django_admin_log            myapp_subject             
+django_content_type         south_migrationhistory    
